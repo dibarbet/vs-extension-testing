@@ -140,7 +140,6 @@ namespace Microsoft.VisualStudio.Extensibility.Testing.Xunit.IntegrationTests
         }
 
         [IdeFact(RootSuffix = "RoslynExp")]
-        [IdeSettings(MaxAttempts = 2)]
         public async Task TestRoslynExperimentalInstance()
         {
             var appCommandLine = await TestServices.Shell.GetRequiredGlobalServiceAsync<SVsAppCommandLine, IVsAppCommandLine>(HangMitigatingCancellationToken);
@@ -150,7 +149,6 @@ namespace Microsoft.VisualStudio.Extensibility.Testing.Xunit.IntegrationTests
             Assert.Equal("RoslynExp", value);
 
             Assert.Equal("RoslynExp", Environment.GetEnvironmentVariable("VSROOTSUFFIX"));
-            Assert.False(true);
         }
 
         [IdeFact(EnvironmentVariables = new[] { "CustomKey1=CustomValue", "CustomKey2=A=B;C", "CustomEmptyKey=" })]

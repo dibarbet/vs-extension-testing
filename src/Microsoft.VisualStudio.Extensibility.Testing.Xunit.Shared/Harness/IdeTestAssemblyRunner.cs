@@ -456,6 +456,7 @@ namespace Xunit.Harness
                     }
 
                     return !_cancellationToken.IsCancellationRequested;
+                    //return _messageSink.OnMessage(message);
                 }
                 else if (!_finalAttempt && message is ITestFailed testFailed)
                 {
